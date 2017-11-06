@@ -1,0 +1,91 @@
+/*
+ * Copyright (C) 2015 Baidu, Inc. All Rights Reserved.
+ */
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+repositories {
+    flatDir {
+        dir 'libs'
+    }
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.0'
+
+    signingConfigs {
+        release {
+            try {
+                storeFile file("./key/baidu_map.jks")
+                storePassword "baidu123"
+                keyAlias "baidu_map"
+                keyPassword "baidu123"
+            } catch (ex) {
+                throw new InvalidUserDataException(ex.toString())
+            }
+        }
+        debug {
+            try {
+                storeFile file("./key/baidu_map.jks")
+                storePassword "baidu123"
+                keyAlias "baidu_map"
+                keyPassword "baidu123"
+            } catch (ex) {
+                throw new InvalidUserDataException(ex.toString())
+            }
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+    }
+    defaultConfig {
+        applicationId "baidumapsdk.demo"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+     //注解butterknife
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    //自定义tab
+    compile 'com.github.q1104133609:MyTabLayout:v0.0.1'
+    //recycle
+    compile 'com.android.support:recyclerview-v7:25.2.0'
+    //自定义tab
+    compile 'com.github.q1104133609:MyTabLayout:v0.0.1'
+
+    //RXJava RxAndroid
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.6'
+    //rxpermissions
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar'
+    //工具类
+    compile 'com.blankj:utilcode:1.6.4'
+    //gosn
+    compile 'com.google.code.gson:gson:2.8.0'
+
+}

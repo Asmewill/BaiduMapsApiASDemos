@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_basetitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:paddingBottom="@dimen/px20"
+        android:paddingTop="@dimen/px20">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px150"
+            android:background="@color/colorAccent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="onBack"
+                android:paddingLeft="@dimen/px50"
+                android:paddingRight="@dimen/px25"
+                android:src="@mipmap/zjt" />
+
+            <LinearLayout
+                android:id="@+id/linear_city"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="深圳"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/image_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/xjt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/linear_search_city"
+                    android:layout_width="@dimen/px712"
+                    android:layout_height="@dimen/px100"
+                    android:layout_marginLeft="@dimen/px30"
+                    android:layout_marginRight="@dimen/px30"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_white_30"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/px30"
+                        android:src="@mipmap/sy_ss" />
+
+                    <EditText
+                        android:id="@+id/edit_city"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/px20"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:hint="请输入地址"
+                        android:maxLines="1"
+                        android:textColor="@color/text_title"
+                        android:textColorHint="@color/text_hint"
+                        android:textSize="@dimen/px42" />
+
+                    <ImageView
+                        android:id="@+id/image_clean"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="@dimen/px15"
+                        android:paddingRight="@dimen/px30"
+                        android:src="@mipmap/sy_qx"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_cancle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingRight="@dimen/px30"
+                    android:text="取消"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <!--移动地图-->
+        <RelativeLayout
+            android:id="@+id/relative_map"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/px710">
+
+            <com.baidu.mapapi.map.MapView
+                android:id="@+id/mapview"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+
+                />
+
+            <ImageView
+                android:id="@+id/image_ddz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/gddz_dt" />
+
+            <ImageView
+                android:id="@+id/image_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="@dimen/px30"
+                android:src="@mipmap/gddz_dwf" />
+        </RelativeLayout>
+        <!--tablayout-->
+        <tablayout.huangbo.com.tablayout.MyIndicator
+            android:id="@+id/indicator_map"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px120"
+            android:layout_below="@+id/relative_map"
+            android:background="@color/white"
+            app:array="@array/map_tabs"
+            app:indicatorColor="@color/tab_press_text"
+            app:selected="0"
+            app:speed="100"
+            app:text_nomal_color="#BFBFBF"
+            app:text_nomal_size="16"
+            app:text_press_color="#333333"
+            app:text_press_size="16">
+
+        </tablayout.huangbo.com.tablayout.MyIndicator>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_below="@id/indicator_map"
+            android:background="@color/line">
+
+        </View>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/view"
+            android:layout_weight="1"
+            android:background="@color/white" />
+
+        <!--历史搜索-->
+        <LinearLayout
+            android:id="@+id/linear_cache"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Cf4f4f5"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:padding="@dimen/px20">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="历史搜索"
+                android:textColor="@color/text_title"
+                android:textSize="@dimen/px36" />
+
+            <ImageView
+                android:id="@+id/image_clear_cache"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:paddingRight="@dimen/px30"
+                android:paddingLeft="@dimen/px30"
+                android:src="@mipmap/sy_qc" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:layout_below="@+id/linear_cache"
+            android:clickable="true"
+            android:visibility="gone" />
+        <!--找不到地址-->
+        <LinearLayout
+            android:id="@+id/view_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F2F2F5"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/sy_gddz" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px60"
+                android:text="找不到地址 ?"
+                android:textColor="@color/text_title"
+                android:textSize="@dimen/px48" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px50"
+                android:gravity="center"
+                android:text="请尝试只输入小区、写字楼或学校名,\n详细地址(如门牌号)可稍后输入哦"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/px36" />
+
+        </LinearLayout>
+        <!--城市列表-->
+        <include
+            android:id="@+id/city_layout"
+            layout="@layout/activity_city"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

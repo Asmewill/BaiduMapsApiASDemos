@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="map_tabs">
+        <item>全  部</item>
+        <item>写字楼</item>
+        <item>小  区</item>
+        <item>学  校</item>
+    </string-array>
+
+    <string-array name="diastans">
+        <item>您附近2km的雅堂小超</item>
+        <item>您附近5km的雅堂小超</item>
+        <item>您附近10km的雅堂小超</item>
+    </string-array>
+
+    <string-array name="resoum">
+        <item>不想买了</item>
+        <item>信息填些错误,重新购买</item>
+        <item>商品缺货</item>
+        <item>其他原因</item>
+    </string-array>
+
+    <string-array name="resoum_goods">
+        <item>拍错了/定单信息错误</item>
+        <item>未按约定时间发货</item>
+        <item>收到的商品破损</item>
+        <item>商品错发/漏发</item>
+        <item>其他</item>
+        <item>收到假货</item>
+        <item>收到的商品不符</item>
+        <item>商品质量问题</item>
+        <item>未收到货</item>
+        <item>七天无理由退货换</item>
+    </string-array>
+
+    <string-array name="order_tabs">
+        <item>全部</item>
+        <item>待付款</item>
+        <item>待商家接单</item>
+        <item>待发货</item>
+        <item>待收货</item>
+        <item>已完成</item>
+        <item>已取消</item>
+    </string-array>
+
+
+    <string-array name="send_times">
+        <item>9.30—10.00(上午)</item>
+        <item>10.30—11.00(上午)</item>
+        <item>11.30—12.00(中午)</item>
+        <item>14.30—15.00(下午)</item>
+        <item>15.30—16.00(下午)</item>
+        <item>16.30—17.00(下午)</item>
+        <item>17.30—18.00(晚上)</item>
+        <item>19.30—20.00(晚上)</item>
+        <item>20.30—21.00(晚上)</item>
+        <item>22.00—22.30(晚上)</item>
+    </string-array>
+</resources>
